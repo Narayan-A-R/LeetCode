@@ -3,15 +3,6 @@
 using namespace std;
 
 
-void display(vector<vector<int>> &image){
-    for(auto vectr:image){
-        for(auto pixel:vectr){
-            cout<<pixel<<" ";
-        }
-        cout<<'\n';
-    }
-    cout<<'\n';
-}
 class Solution
 {
 public:
