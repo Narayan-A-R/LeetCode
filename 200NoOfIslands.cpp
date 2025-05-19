@@ -6,13 +6,15 @@ class Solution {
 public:
 
     void dfs(vector<vector<char>>& grid,int row, int column){
-        int m=grid.size(),n=grid[0].size();
+        if(row>=grid.size() || row<0) return;
+        if(column >= grid[0].size() || column <0) return;
+        if(grid[row][column] != '1') return;
+
         grid[row][column]='2';
-        if (row+1< m && grid[row+1][column]=='1') dfs(grid,row+1,column);
-        if (row-1 >=0 && grid[row-1][column]=='1') dfs(grid,row-1,column);
-        if (column+1< n && grid[row][column+1]=='1') dfs(grid,row,column+1);
-        if (column-1>=0 && grid[row][column-1]=='1') dfs(grid,row,column-1);
-        
+        dfs(grid,row+1,column);
+        dfs(grid,row-1,column);
+        dfs(grid,row,column+1);
+        dfs(grid,row,column-1);
     }
     int numIslands(vector<vector<char>>& grid) {
         int cnt=0;
