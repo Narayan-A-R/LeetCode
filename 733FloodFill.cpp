@@ -2,6 +2,16 @@
 
 using namespace std;
 
+
+void display(vector<vector<int>> &image){
+    for(auto vectr:image){
+        for(auto pixel:vectr){
+            cout<<pixel<<" ";
+        }
+        cout<<'\n';
+    }
+    cout<<'\n';
+}
 class Solution
 {
 public:
@@ -10,20 +20,20 @@ public:
         int m=image.size();
         int n=image[0].size();
         image[currentRow][currentColumn]=colour;
-        if(currentRow+1 < n && parentRow!=currentRow+1 && image[currentRow+1][currentColumn]==startingColour){
-            dfsFill(image,startingColour,colour,currentRow+1,currentColumn,currentRow,currentColumn);
+        if(currentRow+1 < m && parentRow!=currentRow+1){
+            if(image[currentRow+1][currentColumn]==startingColour) dfsFill(image,startingColour,colour,currentRow+1,currentColumn,currentRow,currentColumn);
         }
-        if(currentRow-1 >= 0 && parentRow!=currentRow-1 && image[currentRow-1][currentColumn]==startingColour){
+        if(currentRow-1 >= 0 && parentRow!=currentRow-1){
 
-            dfsFill(image,startingColour,colour,currentRow-1,currentColumn,currentRow,currentColumn);
+            if(image[currentRow-1][currentColumn]==startingColour) dfsFill(image,startingColour,colour,currentRow-1,currentColumn,currentRow,currentColumn);
         }
-        if(currentColumn+1<m && parentColumn!=currentColumn+1 && image[currentRow][currentColumn+1]==startingColour){
-            dfsFill(image,startingColour,colour,currentRow,currentColumn+1,currentRow,currentColumn);
+        if(currentColumn+1<n && parentColumn!=currentColumn+1){
+            if(image[currentRow][currentColumn+1]==startingColour) dfsFill(image,startingColour,colour,currentRow,currentColumn+1,currentRow,currentColumn);
         }
-        if(currentColumn-1>=0 && parentColumn!=currentColumn-1 && image[currentRow][currentColumn-1]==startingColour){
-            dfsFill(image,startingColour,colour,currentRow,currentColumn-1,currentRow,currentColumn);
+        if(currentColumn-1>=0 && parentColumn!=currentColumn-1){
+            if(image[currentRow][currentColumn-1]==startingColour) dfsFill(image,startingColour,colour,currentRow,currentColumn-1,currentRow,currentColumn);
         }
-
+        return;
     }
 
     vector<vector<int>> floodFill(vector<vector<int>>& image, int startingRow, int startingColumn, int colour) {
@@ -43,9 +53,9 @@ int main(){
     Solution s;
     
 
-    vector<vector<int>> image={{1,1,1},{1,1,0},{1,0,1}};
+    vector<vector<int>> image={{0,0,0},{0,0,0}};
     vector<vector<int>> ans;
-    ans=s.floodFill(image,1,1,2);
+    ans=s.floodFill(image,1,0,2);
 
     for(auto vectr:image){
         for(auto pixel:vectr){
