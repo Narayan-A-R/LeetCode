@@ -22,7 +22,7 @@ public:
 
 int main(){
     Solution s;
-    string str="PPALLP";
+    string str="PPALLL";
     cout<<s.checkRecord(str)<<"\n";
     return 0;
 }
