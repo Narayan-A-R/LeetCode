@@ -61,22 +61,12 @@ public:
             divider=divider*1LL*base;
         }
 
-        int cnt=0;
-        int answer[N]={0};
-        answer[cnt]=ans[0];
-
-        for (int i = 0; i < nums.size()-1; i++)
-        {
-            if(ans[i]!=ans[i+1]){
-                answer[cnt++]=ans[i+1];
-            }
-        }
-
         int maximum=0;
         int maxi=0;
-        for (int i = 0; i < cnt-1; i++)
+        for (int i = 0; i < nums.size()-1; i++)
         {
-            if(answer[i+1]-answer[i]==1) maxi++;
+            if(ans[i+1]-ans[i]==0) continue;;
+            if(ans[i+1]-ans[i]==1) maxi++;
             else maxi=0;
             maximum=max(maxi,maximum);
         }
