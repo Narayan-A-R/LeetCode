@@ -15,7 +15,7 @@ class Solution {
 public:
     int carFleet(int target, vector<int>& position, vector<int>& speed){
         int n=position.size();
-        int ind[1000010];
+        int ind[1000010]={0};
         for(int i=0;i<n;i++) ind[position[i]]=i;
         sort(position.begin(),position.end());
         vector<double> time(n,0);
