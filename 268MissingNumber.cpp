@@ -11,7 +11,6 @@ public:
         return n*(n+1)/2 - sum;
     }
 };
-
 int main(){
     
     return 0;
